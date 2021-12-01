@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Animals list !{% endblock %}
+
+{% block body %}
+<h1>Our pets</h1>
+
+<ul>
+{% for animal in animals %}
+<li>
+<article>
+<h2>{{animal.name|capitalize}}</h2>
+<dl>
+<dt>Espèce : </dt><dd>{{animal.specie|capitalize}}</dd>
+<dt>Age : </dt><dd>{{animal.age}}</dd>
+<dt>Copain: </dt><dd>
+{% for buddy in animal.buddies %}
+{{buddy.name}},
+    
+{% endfor %}
+</dd>
+</dl>
+</article>
+
+</li>
+    
+{% endfor %}
+</ul>
+{% endblock %}
